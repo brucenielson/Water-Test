@@ -1,5 +1,6 @@
 ﻿//using System.Collections;
 //using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,7 @@ public class Player : MonoBehaviour {
     public int maxHealth = 1000;
     public int currentHealth;
     private Scene scene;
-
+    bool canTakeDamage = true;
     public HealthBar healthbar;
     public Collider collider;
 
@@ -22,23 +23,34 @@ public class Player : MonoBehaviour {
     //teleport after death
     private void Update()
     {
-        if (currentHealth < 0)
+        if (currentHealth < 1)
         {
-            SceneManager.LoadScene("waterTest");
+            SceneManager.LoadScene("Water test");
         }
         
     }
 
     // Update is called once per frame
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.name == "WaterProNighttime")
         {
-            TakeDamage(100);
+            if (canTakeDamage)
+            {
+                StartCoroutine(WaitForSeconds());
+                TakeDamage(100);
+            }
         }
-          
+         
     }
-    
+
+    IEnumerator WaitForSeconds()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSecondsRealtime(1);
+        canTakeDamage = true;
+    }
+
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
