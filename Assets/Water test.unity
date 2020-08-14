@@ -145,7 +145,7 @@ MonoBehaviour:
   maxHealth: 1000
   currentHealth: 0
   healthbar: {fileID: 582284482}
-  rainEvent: {fileID: 0}
+  rainEvent: {fileID: 1047230625}
 --- !u!114 &20270013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7728951ce267c04d81ebda416c5a71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rainEvent: {fileID: 0}
+  rainEvent: {fileID: 1047230625}
 --- !u!114 &1047230625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,11 +919,12 @@ MonoBehaviour:
   warningMessage: Rain Incoming! Get To Da Choppa!
   eventOverMessage: it has stopped raining.
   isRaining: 0
-  minimumTimeUntilNextRainEvent: 0
-  maximumTimeUntilNextRainEvent: 0
+  minimumTimeUntilNextRainEvent: 1
+  maximumTimeUntilNextRainEvent: 1
   timeUntilNextRainEvent: 0
-  minimumRainDuration: 0
-  maximumRainDuration: 0
+  minimumRainDuration: 1
+  maximumRainDuration: 1
+  RainDuration: 1
 --- !u!4 &1047230630
 Transform:
   m_ObjectHideFlags: 0

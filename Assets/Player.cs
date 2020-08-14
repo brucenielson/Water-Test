@@ -28,7 +28,7 @@ public class Player : MonoBehaviour {
         {
             SceneManager.LoadScene("Water test");
         }
-        if (rainEvent.timeUntilNextRainEvent == 0)
+        if (rainEvent.isRaining == true)
         {
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
             {

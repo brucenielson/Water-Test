@@ -12,6 +12,7 @@ public class RainEvent : MonoBehaviour {
     public int timeUntilNextRainEvent;
     public int minimumRainDuration;
     public int maximumRainDuration;
+    public int RainDuration;
     private bool countdownStarted;
 
     public void StartRainEventCountdown()
@@ -23,19 +24,32 @@ public class RainEvent : MonoBehaviour {
     private void StartRain()
     {
         isRaining = true;
-        int rainDuration = Random.Range(minimumRainDuration, maximumRainDuration);
+        int RainDuration = Random.Range(minimumRainDuration, maximumRainDuration);
+        StartCoroutine(Duration());
     }
     private void StopRain()
     {
-        //
+        Debug.Log("Stopped rain");
+        isRaining = false;
     }
     private IEnumerator Countdown()
     {
+        Debug.Log("ya got 5 seconds before PAIN");
         while (timeUntilNextRainEvent > 0)
         {
             timeUntilNextRainEvent -= 1;
-            yield return new WaitForSeconds(60);
+            yield return new WaitForSeconds(5);
         }
         StartRain();
+    }
+    private IEnumerator Duration()
+    {
+        Debug.Log("ya got 5 seconds before ya good");
+        while (RainDuration > 0)
+        {
+            RainDuration -= 1;
+            yield return new WaitForSeconds(5);
+        }
+        StopRain();
     }
 }
