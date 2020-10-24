@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7728951ce267c04d81ebda416c5a71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rainEvent: {fileID: 1047230625}
+  rainEvent: {fileID: 0}
 --- !u!114 &1047230625
 MonoBehaviour:
   m_ObjectHideFlags: 0

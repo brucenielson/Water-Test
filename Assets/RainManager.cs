@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class RainManager : MonoBehaviour {
     public RainEvent rainEvent;
-    // Use this for initialization
     void Start () {
 
         if (rainEvent.timeUntilNextRainEvent == 0)
         {
-            rainEvent.StartRainEventCountdown();
+            rainEvent.Start();
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

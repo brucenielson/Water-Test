@@ -13,43 +13,49 @@ public class RainEvent : MonoBehaviour {
     public int minimumRainDuration;
     public int maximumRainDuration;
     public int RainDuration;
-    private bool countdownStarted;
+    public int maximumRainfallWait;
+    public int minimumRainfallWait;
+    public int RainfallWait;
 
-    public void StartRainEventCountdown()
+     public void Start()
     {
-        timeUntilNextRainEvent = Random.Range(minimumTimeUntilNextRainEvent, maximumTimeUntilNextRainEvent);
-        countdownStarted = true;
-        StartCoroutine(Countdown());
+        StartCoroutine(Rain());
     }
-    private void StartRain()
+
+    IEnumerator Rain()
     {
-        isRaining = true;
-        int RainDuration = Random.Range(minimumRainDuration, maximumRainDuration);
-        StartCoroutine(Duration());
-    }
-    private void StopRain()
-    {
-        Debug.Log("Stopped rain");
-        isRaining = false;
-    }
-    private IEnumerator Countdown()
-    {
-        Debug.Log("ya got 5 seconds before PAIN");
-        while (timeUntilNextRainEvent > 0)
+        //sets how long 1 minute is?
+        var wait = new WaitForSeconds(5f);
+        while (true)
         {
-            timeUntilNextRainEvent -= 1;
-            yield return new WaitForSeconds(5);
+            //sets time until next rain event
+            int timeUntilNextRainEvent = Random.Range(minimumTimeUntilNextRainEvent, maximumTimeUntilNextRainEvent);
+            while (timeUntilNextRainEvent > 0)
+            {
+                //countdown til next rain event
+                timeUntilNextRainEvent--;
+                yield return wait;
+            }
+            //sets the rain duration
+            isRaining = true;
+            int RainDuration = Random.Range(minimumRainDuration, maximumRainDuration);
+            while (RainDuration > 0)
+            {
+                //countdown until clear skies
+                RainDuration--;
+                yield return wait;
+            }
+            //stops the rain
+            isRaining = false;
+            //sets time until next rainfall
+            int RainfallWait = Random.Range(minimumRainfallWait, maximumRainfallWait);
+            while (RainfallWait > 0)
+            {
+                //countdown until clear skies
+                RainfallWait--;
+                yield return wait;
+            }
+            yield return null;
         }
-        StartRain();
-    }
-    private IEnumerator Duration()
-    {
-        Debug.Log("ya got 5 seconds before ya good");
-        while (RainDuration > 0)
-        {
-            RainDuration -= 1;
-            yield return new WaitForSeconds(5);
-        }
-        StopRain();
     }
 }

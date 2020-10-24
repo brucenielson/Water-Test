@@ -14,20 +14,16 @@ public class Player : MonoBehaviour {
     RaycastHit hit;
     public RainEvent rainEvent;
 
-    // Start is called once per frame
+    //Manage healthbar
     void Start ()
     {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
     }
 
-    //teleport after death
+    //take damage while in rain
     private void Update()
     {
-        if (currentHealth < 1)
-        {
-            SceneManager.LoadScene("Water test");
-        }
         if (rainEvent.isRaining == true)
         {
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, Mathf.Infinity))
@@ -46,7 +42,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
+    //Take damage from water bodies
     private void OnTriggerStay(Collider other)
     {
         if (other.name == "WaterProNighttime")
