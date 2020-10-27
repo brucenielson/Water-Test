@@ -722,6 +722,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 582284484}
+  - {fileID: 1153977540}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -904,7 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7728951ce267c04d81ebda416c5a71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rainEvent: {fileID: 0}
+  rainEvent: {fileID: 1047230625}
 --- !u!114 &1047230625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,15 +917,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca80859b3ba5b84da62ffae2ff439dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warningMessage: Rain Incoming! Get To Da Choppa!
-  eventOverMessage: it has stopped raining.
   isRaining: 0
   minimumTimeUntilNextRainEvent: 1
   maximumTimeUntilNextRainEvent: 1
   timeUntilNextRainEvent: 0
   minimumRainDuration: 1
   maximumRainDuration: 1
-  RainDuration: 1
+  RainDuration: 0
+  maximumRainfallWait: 1
+  minimumRainfallWait: 1
+  RainfallWait: 0
+  warning: {fileID: 1153977541}
+  Indicator: {fileID: 1153977545}
+  Indicator2: {fileID: 1153977544}
 --- !u!4 &1047230630
 Transform:
   m_ObjectHideFlags: 0
@@ -938,6 +943,121 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1153977539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1153977540}
+  - component: {fileID: 1153977543}
+  - component: {fileID: 1153977542}
+  - component: {fileID: 1153977541}
+  - component: {fileID: 1153977545}
+  - component: {fileID: 1153977544}
+  m_Layer: 5
+  m_Name: Weather Messages
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1153977540
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153977539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 624348328}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -130.7, y: 161.7}
+  m_SizeDelta: {x: 700, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1153977541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153977539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e93fc8024e468c45aebe5b171d83481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warningmesssage: {fileID: 1153977542}
+  rainEvent: {fileID: 1047230625}
+  Indicator: {fileID: 1153977545}
+  Indicator2: {fileID: 1153977544}
+  fadeOutTime: 1
+--- !u!114 &1153977542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153977539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 15
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: hisdjfoiasjdfpoiasdpoifjapsoidjfpoiajs
+--- !u!222 &1153977543
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153977539}
+--- !u!114 &1153977544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153977539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227fc09f581f6e943b3c57a502c3e91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1153977545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153977539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18531f0ab7f13f41b9bf177e730c4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1158529522
 GameObject:
   m_ObjectHideFlags: 0
